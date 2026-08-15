@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abuk Deng | Founder, Author & Venture Architect</title>
+  <meta name="description" content="Personal portfolio of Abuk Deng, also known as Venusian Princesss — founder, author, venture architect and multidisciplinary strategist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4f4f2;
+      --surface:#ffffff;
+      --surface-2:#fafaf8;
+      --text:#111111;
+      --muted:#737373;
+      --line:#e7e7e3;
+      --accent:#8f6b2e;
+      --accent-soft:#d9c6a0;
+      --shadow:0 18px 50px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:820px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        repeating-linear-gradient(135deg,rgba(0,0,0,.025) 0 1px,transparent 1px 8px),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .shell{
+      width:min(100%,var(--max));
+      margin:0 auto;
+      min-height:100vh;
+      background:var(--surface);
+      border-left:1px solid var(--line);
+      border-right:1px solid var(--line);
+    }
+    .hero-cover{
+      height:265px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 78% 26%,rgba(255,255,255,.35),transparent 18%),
+        radial-gradient(circle at 22% 76%,rgba(211,188,144,.42),transparent 26%),
+        linear-gradient(145deg,#1b1b1a 0%,#3b352b 50%,#8f6b2e 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+    }
+    .hero-cover:before{
+      content:"";
+      position:absolute;
+      inset:-30px;
+      background:
+        linear-gradient(120deg,transparent 0 37%,rgba(255,255,255,.08) 37% 39%,transparent 39% 100%),
+        linear-gradient(30deg,transparent 0 55%,rgba(255,255,255,.06) 55% 57%,transparent 57% 100%);
+      transform:rotate(-4deg);
+    }
+    .hero-cover p{
+      position:relative;
+      z-index:2;
+      margin:0;
+      width:min(86%,650px);
+      text-align:center;
+      font-size:clamp(1.05rem,2.2vw,1.35rem);
+      font-style:italic;
+      font-weight:600;
+      letter-spacing:-.02em;
+      text-shadow:0 2px 16px rgba(0,0,0,.28);
+    }
+    .profile{
+      position:relative;
+      padding:0 32px 28px;
+      border-bottom:1px solid var(--line);
+    }
+    .avatar{
+      width:112px;
+      height:112px;
+      border-radius:50%;
+      margin-top:-48px;
+      border:7px solid var(--surface);
+      background:
+        radial-gradient(circle at 34% 28%,#d7c39c 0 8%,transparent 9%),
+        linear-gradient(145deg,#131313,#8f6b2e);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-family:Manrope,sans-serif;
+      font-size:1.5rem;
+      font-weight:700;
+      box-shadow:0 8px 24px rgba(0,0,0,.1);
+      position:relative;
+      z-index:3;
+    }
+    .profile-row{
+      display:flex;
+      gap:20px;
+      justify-content:space-between;
+      align-items:flex-end;
+    }
+    .name-wrap{margin-top:14px}
+    h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.035em}
+    h1{font-size:2.45rem;line-height:1.05;margin:0 0 4px}
+    .sub{color:#8a8a86;font-size:.98rem}
+    .socials{display:flex;gap:8px;flex-wrap:wrap}
+    .icon-btn{
+      width:38px;height:38px;border-radius:50%;
+      border:1px solid var(--line);
+      display:grid;place-items:center;
+      background:var(--surface);
+      box-shadow:0 3px 12px rgba(0,0,0,.05);
+      font-size:.82rem;font-weight:700
+    }
+    .content{padding:0 32px}
+    .intro{
+      padding:26px 0 34px;
+      border-bottom:1px dashed var(--line);
+      font-size:1.03rem;
+      color:#4e4e4a;
+    }
+    .intro strong{color:var(--text)}
+    section{padding:34px 0;border-bottom:1px dashed var(--line)}
+    .section-title{
+      display:flex;justify-content:space-between;gap:16px;align-items:center;
+      margin-bottom:18px;
+    }
+    .section-title h2{margin:0;font-size:1.05rem}
+    .section-title span{
+      color:#aaa9a4;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em
+    }
+    .timeline{display:grid;gap:12px}
+    .exp{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:17px;
+      background:var(--surface-2);
+      transition:.2s ease;
+    }
+    .exp:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.06)}
+    .exp-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+    .exp h3{margin:0;font-size:1.06rem}
+    .role{font-size:.88rem;color:#666;margin-top:2px}
+    .date{
+      font-size:.76rem;color:#888;background:#fff;border:1px solid var(--line);
+      border-radius:999px;padding:5px 9px;white-space:nowrap
+    }
+    .exp p{margin:.75rem 0 0;color:#666;font-size:.91rem}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .project{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+      transition:.2s ease;
+      display:flex;flex-direction:column;
+    }
+    .project:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .project-art{
+      min-height:150px;
+      background:
+        radial-gradient(circle at 74% 25%,rgba(255,255,255,.33),transparent 19%),
+        linear-gradient(135deg,#181818,#7d673f);
+      padding:16px;
+      display:flex;align-items:flex-end;
+      color:#fff;
+      font-weight:700;
+    }
+    .project:nth-child(2) .project-art{background:linear-gradient(135deg,#30352f,#a07b44)}
+    .project:nth-child(3) .project-art{background:linear-gradient(135deg,#202a2c,#647f78)}
+    .project:nth-child(4) .project-art{background:linear-gradient(135deg,#3b2631,#a26e75)}
+    .project:nth-child(5) .project-art{background:linear-gradient(135deg,#2b2532,#8e7998)}
+    .project:nth-child(6) .project-art{background:linear-gradient(135deg,#1f2021,#b69251)}
+    .project-body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .project h3{margin:0;font-size:1rem}
+    .project p{margin:0;color:#71716d;font-size:.87rem}
+    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:6px}
+    .tag{
+      border:1px solid var(--line);background:#fafafa;border-radius:999px;
+      font-size:.68rem;color:#666;padding:4px 7px
+    }
+    .research-list{display:grid;gap:8px}
+    .research{
+      padding:15px 16px;border:1px solid var(--line);border-radius:14px;background:#fff
+    }
+    .research b{display:block;font-size:.94rem;margin-bottom:3px}
+    .research p{margin:0;color:#767671;font-size:.86rem}
+    .build-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .build{
+      min-height:190px;border-radius:16px;border:1px solid var(--line);
+      padding:18px;background:linear-gradient(150deg,#181818,#3c372d);color:#fff;
+      display:flex;flex-direction:column;justify-content:flex-end
+    }
+    .build:nth-child(2){background:linear-gradient(150deg,#35312d,#987744)}
+    .build h3{margin:0 0 4px;font-size:1.2rem}
+    .build p{margin:0;color:rgba(255,255,255,.75);font-size:.86rem}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{
+      padding:9px 12px;border-radius:10px;border:1px solid var(--line);
+      background:#fafaf8;color:#4d4d49;font-size:.82rem;font-weight:600
+    }
+    .writing-list{display:grid;gap:8px}
+    .writing{
+      display:flex;justify-content:space-between;gap:14px;align-items:center;
+      border:1px solid var(--line);border-radius:13px;padding:14px 15px;background:#fff
+    }
+    .writing span:first-child{font-weight:600;font-size:.9rem}
+    .writing small{color:#999}
+    .cta{
+      padding:38px 0 46px;text-align:center;border-bottom:0
+    }
+    .cta p{color:#777;margin:0 0 18px}
+    .cta-card{
+      display:inline-flex;align-items:center;gap:12px;
+      border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 8px;
+      background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.06)
+    }
+    .mini-avatar{
+      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+      background:linear-gradient(145deg,#111,#8f6b2e);color:#fff;font-size:.75rem;font-weight:700
+    }
+    .cta-card b{font-size:.88rem}
+    footer{
+      padding:22px 32px;color:#a3a39e;font-size:.76rem;text-align:center
+    }
+    @media(max-width:680px){
+      .profile,.content{padding-left:20px;padding-right:20px}
+      .profile-row{align-items:flex-start;flex-direction:column}
+      h1{font-size:2rem}
+      .projects,.build-grid{grid-template-columns:1fr}
+      .hero-cover{height:220px}
+      .socials{margin-top:4px}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="hero-cover">
+      <p>“Build systems with intelligence, shape them with culture, and leave behind something worth inheriting.”</p>
+    </div>
+
+    <header class="profile">
+      <div class="avatar">AD</div>
+      <div class="profile-row">
+        <div class="name-wrap">
+          <h1>Abuk Deng</h1>
+          <div class="sub">Founder of Soluna Noor Enterprises • Author • Venture Architect</div>
+        </div>
+        <div class="socials">
+          <a class="icon-btn" href="#work" title="Selected work">W</a>
+          <a class="icon-btn" href="#research" title="Research">R</a>
+          <a class="icon-btn" href="#writing" title="Writing">✦</a>
+          <a class="icon-btn" href="mailto:hello@solunanoor.com" title="Email">@</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="intro">
+        <strong>I turn ambitious ideas into connected ventures, intelligent systems and clear narratives.</strong>
+        Through Soluna Noor Enterprises, I am building at the intersection of ethical technology, trade, logistics,
+        cultural intelligence and creative enterprise. As Venusian Princesss, I also write about identity, self-direction,
+        philosophy and the inner systems that shape how people live and create.
+      </div>
+
+      <section id="experience">
+        <div class="section-title">
+          <h2>Founder Experience</h2>
+          <span>Active portfolio</span>
+        </div>
+        <div class="timeline">
+          <article class="exp">
+            <div class="exp-top">
+              <div><h3>Soluna Noor Enterprises Pty Ltd</h3><div class="role">Founder & Director</div></div>
+              <div class="date">Present</div>
+            </div>
+            <p>Building a platform-led venture studio spanning ethical AI infrastructure, regional logistics, trade enablement, creative enterprise and strategic research.</p>
+          </article>
+          <article class="exp">
+            <div class="exp-top">
+              <div><h3>Soluna Intelligence Platform</h3><div class="role">Founder Architecture & Product Strategy</div></div>
+              <div class="date">In development</div>
+            </div>
+            <p>Designing the shared intelligence architecture that connects EchoChain AI, Soluna SupplySync and Soluna TradeBridge through common data, governance and verification layers.</p>
+          </article>
+          <article class="exp">
+            <div class="exp-top">
+              <div><h3>Noor Creators Studio</h3><div class="role">Founder & Programme Architect</div></div>
+              <div class="date">Pilot development</div>
+            </div>
+            <p>Creating a youth-focused creative entrepreneurship ecosystem combining identity, enterprise capability, mentorship and practical pathways into opportunity.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-title">
+          <h2>Proof of Work</h2>
+          <span>Selected ventures</span>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-art">Soluna Intelligence Platform</div>
+            <div class="project-body">
+              <h3>Soluna Intelligence Platform</h3>
+              <p>Shared enterprise intelligence connecting trust, logistics and trade workflows.</p>
+              <div class="tags"><span class="tag">Architecture</span><span class="tag">AI</span><span class="tag">Governance</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art">EchoChain AI</div>
+            <div class="project-body">
+              <h3>EchoChain AI</h3>
+              <p>Trust and verification infrastructure for claims, evidence, auditability and impact data.</p>
+              <div class="tags"><span class="tag">Verification</span><span class="tag">ESG</span><span class="tag">AI Governance</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art">Soluna SupplySync</div>
+            <div class="project-body">
+              <h3>Soluna SupplySync</h3>
+              <p>Regional logistics intelligence for supplier matching, inventory visibility and dispatch coordination.</p>
+              <div class="tags"><span class="tag">Logistics</span><span class="tag">Regional Systems</span><span class="tag">Operations</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art">Soluna TradeBridge</div>
+            <div class="project-body">
+              <h3>Soluna TradeBridge</h3>
+              <p>Trade-readiness and compliance pathways designed to reduce friction for SMEs entering markets.</p>
+              <div class="tags"><span class="tag">Trade</span><span class="tag">Compliance</span><span class="tag">SMEs</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art">Noor Creators Studio</div>
+            <div class="project-body">
+              <h3>Noor Creators Studio</h3>
+              <p>A creative entrepreneurship studio connecting identity, capability and economic agency.</p>
+              <div class="tags"><span class="tag">Creative Economy</span><span class="tag">Youth</span><span class="tag">Programme Design</span></div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-art">Soluna Noor Enterprises</div>
+            <div class="project-body">
+              <h3>Venture Studio Architecture</h3>
+              <p>Shared strategy, governance, research and operating infrastructure across a multidisciplinary venture portfolio.</p>
+              <div class="tags"><span class="tag">Strategy</span><span class="tag">Portfolio</span><span class="tag">Systems</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="research">
+        <div class="section-title">
+          <h2>SNE Research</h2>
+          <span>Applied intelligence</span>
+        </div>
+        <div class="research-list">
+          <div class="research"><b>Trust infrastructure & verification</b><p>How claims validation, provenance, audit trails and AI governance can function as shared enterprise infrastructure.</p></div>
+          <div class="research"><b>Platform integration</b><p>Which data, permissions, events and intelligence capabilities should be shared across EchoChain, SupplySync and TradeBridge.</p></div>
+          <div class="research"><b>Regional logistics systems</b><p>Where coordination fails across supplier discovery, stock visibility, carrier workflows and shipment milestones.</p></div>
+          <div class="research"><b>Trade readiness & market access</b><p>How smaller businesses can navigate compliance evidence, partner requirements and export pathways with less friction.</p></div>
+          <div class="research"><b>Creative enterprise pathways</b><p>How identity, confidence, enterprise capability, mentorship and opportunity can be designed as one connected system.</p></div>
+          <div class="research"><b>Ethical expansion</b><p>How SNE should evaluate new markets, partnerships and corridors through opportunity, governance, cultural intelligence and implementation risk.</p></div>
+        </div>
+      </section>
+
+      <section id="building">
+        <div class="section-title">
+          <h2>Currently Building</h2>
+          <span>Priority work</span>
+        </div>
+        <div class="build-grid">
+          <article class="build">
+            <h3>Soluna Intelligence Platform</h3>
+            <p>Architecture, product requirements, data governance, integration design and pilot strategy.</p>
+          </article>
+          <article class="build">
+            <h3>Noor Creators Studio</h3>
+            <p>Healing & Hustle pilot, curriculum system, creator pathways and programme infrastructure.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="capabilities">
+        <div class="section-title">
+          <h2>Capabilities</h2>
+          <span>How I work</span>
+        </div>
+        <div class="skills">
+          <span class="skill">Venture Architecture</span>
+          <span class="skill">Founder Strategy</span>
+          <span class="skill">Applied Research</span>
+          <span class="skill">AI & Systems Thinking</span>
+          <span class="skill">Brand Architecture</span>
+          <span class="skill">Programme Design</span>
+          <span class="skill">Product Positioning</span>
+          <span class="skill">Governance Design</span>
+          <span class="skill">Partnership Strategy</span>
+          <span class="skill">Long-form Writing</span>
+          <span class="skill">Narrative Strategy</span>
+          <span class="skill">Ecosystem Mapping</span>
+        </div>
+      </section>
+
+      <section id="writing">
+        <div class="section-title">
+          <h2>Writing & Ideas</h2>
+          <span>Venusian Princesss</span>
+        </div>
+        <div class="writing-list">
+          <div class="writing"><span>The Compass You Stopped Listening To</span><small>Identity & self-trust</small></div>
+          <div class="writing"><span>Technology, culture and the ethics of what we build</span><small>Thought leadership</small></div>
+          <div class="writing"><span>Turning complex ventures into clear stories</span><small>Founder narrative</small></div>
+          <div class="writing"><span>Evidence, cultural knowledge and lived experience</span><small>Research notes</small></div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <p>If you have read this far, you may be interested in what I am building.</p>
+        <a class="cta-card" href="mailto:hello@solunanoor.com">
+          <span class="mini-avatar">AD</span>
+          <b>Start a conversation</b>
+        </a>
+      </section>
+    </div>
+
+    <footer>
+      Abuk Deng / Venusian Princesss · Founder · Author · Venture Architect · Melbourne, Australia
+    </footer>
+  </main>
+</body>
+</html>
